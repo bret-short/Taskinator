@@ -44,6 +44,10 @@ form {
   flex-wrap: wrap;
 }
 
+main {
+  display: flex;
+}
+
 form input {
   outline: none;
   border: none;
