@@ -1,3 +1,5 @@
+var taskIdCounter = 0;
+
 var formEl = document.querySelector("#task-form");
 console.log(buttonEl);
 
@@ -26,12 +28,18 @@ var taskFormHandler = function(event) {
     var listItemEl = document.createElement("li");
     listItemEl.className = "task-item";
 
+    //add task id as a custom attribute
+    listItemEl.setAttribute("data-task-id", taskIdCounter);
+
     var taskInfoEl = document.createElement("div");
     taskInfoEl.classname = "task-info";
     taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
     listItemEl.appendChild(taskInfoEl);
     
     tasksToDoEl.appendChild(listItemEl);
+
+    //increase task counter for next unique id
+    taskIdCounter++;
   }
   
 formEl.addEventListener("submit", taskFormHandler);
